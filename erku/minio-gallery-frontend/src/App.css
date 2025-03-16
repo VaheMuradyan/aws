@@ -1,0 +1,88 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* UploadForm ոճեր */
+.upload-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dropzone {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone.active {
+  border-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.dropzone-content {
+  color: #6c757d;
+}
+
+.preview-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.img-preview {
+  max-height: 200px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ImageCard ոճեր */
+.image-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-preview {
+  height: 200px;
+  object-fit: cover;
+}
+
+.image-title {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Gallery ոճեր */
+.gallery-container {
+  margin-top: 20px;
+}
+
+.gallery-title {
+  font-weight: 600;
+  color: #343a40;
+  border-bottom: 2px solid #f8f9fa;
+  padding-bottom: 10px;
+}
