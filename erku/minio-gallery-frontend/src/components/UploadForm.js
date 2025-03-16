@@ -9,8 +9,8 @@ const UploadForm = ({ onUploadSuccess }) => {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [tags, setTags] = useState('');
 
-  // Dropzone-ի օգտագործման կարգավորում
   const onDrop = useCallback((acceptedFiles) => {
     const selectedFile = acceptedFiles[0];
     
@@ -35,7 +35,6 @@ const UploadForm = ({ onUploadSuccess }) => {
     maxFiles: 1
   });
 
-  // Նկարի վերբեռնման մշակիչ
   const handleUpload = async (e) => {
     e.preventDefault();
     
@@ -48,10 +47,11 @@ const UploadForm = ({ onUploadSuccess }) => {
     setError('');
     
     try {
-      await uploadImage(file);
+      await uploadImage(file, tags);
       setSuccess('Նկարը հաջողությամբ վերբեռնվել է');
       setFile(null);
       setPreview(null);
+      setTags('');
       
       // Ծնող կոմպոնենտին տեղեկացում վերբեռնման հաջողության մասին
       if (onUploadSuccess) {
@@ -64,12 +64,12 @@ const UploadForm = ({ onUploadSuccess }) => {
     }
   };
   
-  // Ընտրված նկարը մաքրելու մշակիչ
   const handleClear = () => {
     setFile(null);
     setPreview(null);
     setError('');
     setSuccess('');
+    setTags('');
   };
 
   return (
@@ -105,6 +105,20 @@ const UploadForm = ({ onUploadSuccess }) => {
             <strong>Ընտրված ֆայլ:</strong> {file.name} ({(file.size / 1024).toFixed(2)} KB)
           </div>
         )}
+        
+        <Form.Group className="mb-3">
+          <Form.Label>Թեգեր (ստորակետով բաժանված)</Form.Label>
+          <Form.Control
+            type="text"
+            value={tags}
+            onChange={(e) => setTags(e.target.value)}
+            placeholder="Օր.՝ բնապատկեր, արվեստ, կենդանիներ"
+            disabled={uploading}
+          />
+          <Form.Text className="text-muted">
+            Օգտագործեք ստորակետներ մի քանի թեգեր ավելացնելու համար
+          </Form.Text>
+        </Form.Group>
         
         <div className="d-flex">
           <Button 

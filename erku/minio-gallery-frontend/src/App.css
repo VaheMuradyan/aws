@@ -1,3 +1,4 @@
+/* Ընդհանուր ոճեր */
 .App {
   min-height: 100vh;
   display: flex;
@@ -66,6 +67,7 @@
 .image-preview {
   height: 200px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .image-title {
@@ -85,4 +87,20 @@
   color: #343a40;
   border-bottom: 2px solid #f8f9fa;
   padding-bottom: 10px;
+}
+
+/* Նկարի մանրամասների էջի ոճեր */
+.image-detail-img {
+  max-height: 500px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.tag-badge {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  transform: scale(1.05);
 }
